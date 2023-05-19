@@ -1,33 +1,36 @@
-#include<stdio.h>
-int main(){
- long long int a, b;
- int ans,carry=0,temp;
- scanf("%lld ,%lld",a, b);
-while(1){
- if(a==0 && b ==0){
-        ans=0;
-        carry=0;
-        break;
- }else if(a<b){
-        temp = b;
-        b = a;
-        a = temp;
-    }
- while(a !=0){
-            a=a%10;
-            b=b%10;
-            ans=0;
-            ans=a+b+carry;
-            if(a+b>=10){
-                carry++;
-            }
-        }
-}
- if(carry==0){
-    printf("No carry operation.\n");
- }else{
-    printf("%d carry operation.\n",carry);
- }
+#include<bits/stdc++.h>
+using namespace std;
 
-return 0;
+int main(){
+	long long a, b, c , _a, _b, result, carry;
+
+
+	while (scanf("%lld %lld",&a,&b)){
+		if ( !a && !b) break;
+		carry = c = 0;
+		while (a || b){
+			_a=a%10;
+			a/=10;
+			_b=b% 10;
+			b/=10;
+
+			result = _a + _b + c;
+			if (result>9){
+				c=1;
+				carry++;
+			}
+			else
+				c=0;
+		}
+		if (!carry){
+			printf("No carry operation.\n");
+		}
+		else if (carry == 1){
+			printf("1 carry operation.\n");
+		}
+		else
+			printf("%lld carry operations.\n",carry);
+	}
+
+	return 0;
 }
