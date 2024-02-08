@@ -1,18 +1,17 @@
 #include<stdio.h>
-int main(){
- int n;
- double l, w, area, radious, ar, ans;
- scanf("%d", &n);
+int main() {
+    int t, i;
+    double l, w, r, areaofcircle, areaofradius;
 
- for(int i = 0; i < n; i++){
-    scanf("%lf", &l);
-    w = l * (.6);
-    radious = l / 5.0;
-    area = w * l;
-    ar = 3.14159265359 * radious * radious;
-    ans = area - ar;
-    printf("%.2f %.2f\n", ar ,ans);
- }
+    scanf("%d", &t);
+    for(i = 0; i < t; i++){
+        scanf("%lf", &l);
+        w = l * 0.6;
+        r = l / 5.0;
 
-return 0;
+        areaofcircle = l * w;
+        areaofradius = 3.14159265359 * r * r;
+        printf("%0.2lf %0.2lf\n", areaofradius, (areaofcircle  - areaofradius));
+    }
+    return 0;
 }
